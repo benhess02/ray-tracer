@@ -4,6 +4,58 @@ import { Vector3 } from "./vector3";
 
 var canvas = <HTMLCanvasElement>document.getElementById("cvs");
 var renderer = new Renderer(canvas);
+renderer.setScene([
+    new Vector3(-10, -2.0, -10),
+    new Vector3(-10, -2.0, 10),
+    new Vector3(10, -2.0, 10),
+    new Vector3(10, -2.0, 10),
+    new Vector3(10, -2.0, -10),
+    new Vector3(-10, -2.0, -10),
+
+
+
+    new Vector3(-1, -1, -1.0),
+    new Vector3(1, -1, -1.0),
+    new Vector3(1, 1, -1.0),
+    new Vector3(1, 1, -1.0),
+    new Vector3(-1, 1, -1.0),
+    new Vector3(-1, -1, -1.0),
+
+    new Vector3(-1, -1, 1.0),
+    new Vector3(-1, 1, 1.0),
+    new Vector3(1, 1, 1.0),
+    new Vector3(1, 1, 1.0),
+    new Vector3(1, -1, 1.0),
+    new Vector3(-1, -1, 1.0),
+
+    new Vector3(-1, -1.0, -1),
+    new Vector3(-1, -1.0, 1),
+    new Vector3(1, -1.0, 1),
+    new Vector3(1, -1.0, 1),
+    new Vector3(1, -1.0, -1),
+    new Vector3(-1, -1.0, -1),
+
+    new Vector3(-1, 1.0, -1),
+    new Vector3(1, 1.0, -1),
+    new Vector3(1, 1.0, 1),
+    new Vector3(1, 1.0, 1),
+    new Vector3(-1, 1.0, 1),
+    new Vector3(-1, 1.0, -1),
+
+    new Vector3(1.0, -1, -1),
+    new Vector3(1.0, -1, 1),
+    new Vector3(1.0, 1, 1),
+    new Vector3(1.0, 1, 1),
+    new Vector3(1.0, 1, -1),
+    new Vector3(1.0, -1, -1),
+
+    new Vector3(-1.0, -1, -1),
+    new Vector3(-1.0, 1, -1),
+    new Vector3(-1.0, 1, 1),
+    new Vector3(-1.0, 1, 1),
+    new Vector3(-1.0, -1, 1),
+    new Vector3(-1.0, -1, -1),
+]);
 
 var infoText = <HTMLSpanElement>document.getElementById("info-text");
 
@@ -11,9 +63,11 @@ var keys : string[] = [];
 
 var lastTime : DOMHighResTimeStamp = -1 / 60;
 
-var cameraPosition = new Vector3();
+var cameraPosition = new Vector3(0, 0, -3);
 var yaw = 0;
 var pitch = 0;
+
+renderer.setCameraPosition(cameraPosition);
 
 function update(time : DOMHighResTimeStamp) {
     requestAnimationFrame((t) => update(t));
